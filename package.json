@@ -42,7 +42,8 @@
     "widevine"
   ],
   "browserify-shim": {
-    "video.js": "global:videojs"
+    "video.js": "global:videojs",
+    "dash.js": "global:dashjs"
   },
   "files": [
     "CONTRIBUTING.md",

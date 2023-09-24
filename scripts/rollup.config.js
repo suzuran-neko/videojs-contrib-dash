@@ -9,21 +9,12 @@ const options = {
   distName: 'videojs-dash',
   exportName: 'videojsDash',
   // stream and string_decoder are used by some modules
-  plugins(defaults) {
-    return {
-      browser: defaults.browser.concat([
-        nodeBuiltinsPlugin(),
-        nodeGlobalsPlugin()
-      ]),
-      module: defaults.module.concat([
-        nodeBuiltinsPlugin(),
-        nodeGlobalsPlugin()
-      ]),
-      test: defaults.test.concat([
-        nodeBuiltinsPlugin(),
-        nodeGlobalsPlugin()
-      ])
-    };
+  globals(defaults) {
+    Object.keys(defaults).forEach(function(type) {
+      defaults[type].dashjs = 'dashjs';
+    });
+
+    return defaults;
   }
 };
 const config = generate(options);
